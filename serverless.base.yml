@@ -1,0 +1,21 @@
+provider:
+  name: aws
+  profile: default
+  runtime: nodejs14.x
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    reloadHandler: true
+  bundle:
+    tsConfig: ./tsconfig.app.json
+    ignorePackages:
+      - 'cache-manager'
+      - 'class-transformer'
+      - 'class-validator'
+      - '@nestjs/websockets/socket-module'
+      - '@nestjs/microservices/microservices-module'
+      - '@nestjs/microservices'
